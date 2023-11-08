@@ -7,8 +7,12 @@ import {
   StyleSheet,  
   View, 
   FlatList, Button, Text, 
+  ScrollView, TouchableOpacity, TouchableWithoutFeedback, Modal, Platform, ActivityIndicator, Pressable
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+
+
+
 
 import BehaviorItem from '../../components/BehaviorItem';
 import BehaviorInput from '../../components/BehaviorInput';
@@ -17,8 +21,9 @@ import IconButton from '../../components/IconButton';
 import BehaviorDetailScreen from './BehaviorDetailScreen';
 import BehaviorFormScreen from './BehaviorFormScreen';
 
-import WeeklyCalendar  from '../../components/Calendar/WeeklyCalendar';
-
+import PropTypes from 'prop-types';
+import moment from 'moment/min/moment-with-locales';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
 
@@ -41,6 +46,7 @@ const behaviorList = currUser[0].behaviorLogs;
 /* Below are examples for calendar behaviors which are not based off of actual user info. 
 Once the database is connected, the behavior information will be based off of the user's info */
 
+  
 
   const [ date, setDate ] = useState(null);
 
@@ -121,7 +127,7 @@ Once the database is connected, the behavior information will be based off of th
           onDeleteItem={deleteBehaviorHandler}
           onPress={pressHandler}
           />
-
+z
         }}
         keyExtractor={(item,index) => {return item.id}} 
         alwaysBounceVertical={true}
