@@ -51,6 +51,7 @@ Once the database is connected, the behavior information will be based off of th
     let today = new Date();
     let date = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
     setDate(date);
+    
   }, []);
 
 

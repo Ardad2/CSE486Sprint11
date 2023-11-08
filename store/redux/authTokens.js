@@ -20,6 +20,8 @@ const authTokensSlice = createSlice({
         logout: (state, action) => {
             state.data[0] = ({token: '', isAuthenticated: false, email: ''});
 
+        },
+        refreshHome: (state, action) => {
         }
     }
 });

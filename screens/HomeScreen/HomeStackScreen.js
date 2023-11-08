@@ -27,7 +27,7 @@ export default function HomeStackScreen() {
  return (
    <HomeStack.Navigator initialRouteName="HomeScreen" options={{headerShown: false}}>
 
-    <HomeStack.Screen name="HomeScreen" component={AltHomeScreen} options={{ }} />
+    <HomeStack.Screen name="HomeScreen" component={HomeScreen} options={{ }} />
      <HomeStack.Screen name="BehaviorDetailScreen" component={BehaviorDetailScreen} options={{  headerTitle: "", tabBarStyle: { display: "none" }, }} />
      <HomeStack.Screen name="BehaviorFormScreen" component={BehaviorFormScreen} />
      <HomeStack.Screen name="BehaviorListScreen" component={BehaviorListScreen} options={{ headerTitle: "New Behavior"}} />

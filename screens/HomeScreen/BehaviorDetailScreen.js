@@ -6,7 +6,7 @@ import { incrementBehavior, decrementBehavior } from '../../store/redux/users';
 
 function BehaviorDetailScreen( {route, navigation} )
 {
-    function pressHandler(name) {
+    function pressHandler() {
         navigation.navigate("HomeScreen");
       }
 

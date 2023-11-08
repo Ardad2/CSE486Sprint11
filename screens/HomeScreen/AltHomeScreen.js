@@ -49,7 +49,7 @@ Once the database is connected, the behavior information will be based off of th
 
 
   const [ date, setDate ] = useState(null);
-  const [currDate, setCurrDate] = useState(moment(props.selected).locale(props.locale))
+  const [currDate, setCurrDate] = useState(moment(moment()).locale(en))
   const [weekdays, setWeekdays] = useState([])
   const [weekdayLabels, setWeekdayLabels] = useState([])
   const [selectedDate, setSelectedDate] = useState(currDate.clone())
@@ -96,9 +96,9 @@ const createWeekdays = (date, map) => {
   let offsets = []
   setWeekdays([])
   for (let i = 0; i < 7; i++) {
-      const weekdayToAdd = date.clone().weekday(props.startWeekday - 7 + i)
+      const weekdayToAdd = date.clone().weekday(7 - 7 + i)
       setWeekdays(weekdays => [...weekdays, weekdayToAdd])
-      setWeekdayLabels(weekdayLabels => [...weekdayLabels, weekdayToAdd.format(props.weekdayFormat)])
+      setWeekdayLabels(weekdayLabels => [...weekdayLabels, weekdayToAdd.format('ddd')])
 
       // render schedule view
       let events = map.get(weekdayToAdd.format('YYYY-MM-DD').toString())
@@ -143,7 +143,7 @@ const createWeekdays = (date, map) => {
               <View key={i.toString()} style={styles.day} onLayout= {event => { offsets[i] = event.nativeEvent.layout.y }}>
                   <View style={styles.dayLabel}>
                       <Text style={[styles.monthDateText, { color: props.themeColor }]}>{weekdayToAdd.format('M/D').toString()}</Text>
-                      <Text style={[styles.dayText, { color: props.themeColor }]}>{weekdayToAdd.format(props.weekdayFormat).toString()}</Text>
+                      <Text style={[styles.dayText, { color: props.themeColor }]}>{weekdayToAdd.format('ddd').toString()}</Text>
                   </View>
                   <View style={[styles.allEvents, eventViews.length === 0 ? { width: '100%', backgroundColor: 'lightgrey' } : {}]}>
                   <Pressable 
@@ -167,7 +167,7 @@ const clickLastWeekHandler = () => {
   setCalendarReady(false)
   const lastWeekCurrDate = currDate.subtract(7, 'days')
   setCurrDate(lastWeekCurrDate.clone())
-  setSelectedDate(lastWeekCurrDate.clone().weekday(props.startWeekday - 7))
+  setSelectedDate(lastWeekCurrDate.clone().weekday(7 - 7))
   createWeekdays(lastWeekCurrDate.clone(), eventMap)
   setCalendarReady(true)
 }
@@ -176,7 +176,7 @@ const clickNextWeekHandler = () => {
   setCalendarReady(false)
   const nextWeekCurrDate = currDate.add(7, 'days')
   setCurrDate(nextWeekCurrDate.clone())
-  setSelectedDate(nextWeekCurrDate.clone().weekday(props.startWeekday - 7))
+  setSelectedDate(nextWeekCurrDate.clone().weekday(7 - 7))
   createWeekdays(nextWeekCurrDate.clone(), eventMap)
   setCalendarReady(true)
 }
@@ -462,6 +462,7 @@ z
 
 }
 
+
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
@@ -480,176 +481,4 @@ const styles = StyleSheet.create({
   plusButton: {
     alignItems: 'center'
   },
-  component: {
-    width: Dimensions.get('window').width,
-    alignItems: 'center',
-    backgroundColor: 'white',
-    borderColor: 'grey',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: StyleSheet.hairlineWidth
-},
-header: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 5
-},
-arrowButton: {
-    paddingHorizontal: 10
-},
-title: {
-    color: 'grey',
-    fontWeight: 'bold'
-},
-week: {
-    width: '100%',
-    borderBottomColor: 'grey',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingVertical: 5
-},
-weekdayLabelContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 10
-},
-weekdayLabel: {
-    flex: 1,
-    alignItems: 'center'
-},
-weekdayLabelText: {
-    color: 'grey'
-}, 
-weekdayNumberContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 5
-},
-weekDayNumber: {
-    flex: 1,
-    width: 30,
-    height: 30,
-    alignItems: 'center',
-    justifyContent: 'center'
-},
-weekDayNumberCircle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 30,
-    height: 30,
-    borderRadius: 30/2,
-},
-weekDayNumberTextToday : {
-    color: 'white'
-},
-schedule: {
-    width: '100%'
-},
-pickerButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: 'white'
-},
-picker: {
-    backgroundColor: 'white',
-    paddingBottom: 20
-},
-modal: {
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end'
-},
-blurredArea: {
-    flex: 1,
-    opacity: 0.7,
-    backgroundColor: 'black'
-},
-modalButton: {
-    padding: 15
-},
-modalButtonText: {
-    fontSize: 20
-},
-indicator: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    position: 'absolute'
-},
-day: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    borderTopColor: 'grey',
-    borderTopWidth: StyleSheet.hairlineWidth,
-},
-dayLabel: {
-    width: '20%',
-    alignItems: 'center',
-    padding: 10,
-    borderRightColor: 'grey',
-    borderRightWidth: StyleSheet.hairlineWidth,
-},
-monthDateText: {
-    fontSize: 20
-},
-dayText: {
-    
-},
-allEvents: {
-    width: '80%',
-},
-event: {
-    flex: 1,
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10
-},
-eventDuration: {
-    width: '30%',
-    justifyContent: 'center'
-},
-durationContainer: {
-    flexDirection: 'row',
-    alignItems: 'center'
-},
-durationDot: {
-    width: 4,
-    height: 4,
-    backgroundColor: 'grey',
-    marginRight: 5,
-    alignSelf: 'center',
-    borderRadius: 4/2,
-},
-durationDotConnector: {
-    height: 20,
-    borderLeftColor: 'grey',
-    borderLeftWidth: StyleSheet.hairlineWidth,
-    position: 'absolute',
-    left: 2
-},
-durationText: {
-    color: 'grey',
-    fontSize: 12
-},
-eventNote: {
-},
-lineSeparator: {
-    width: '100%',
-    borderBottomColor: 'lightgrey',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-},
-dot: {
-    width: 4,
-    height: 4,
-    marginTop: 1,
-    alignSelf: 'center',
-    borderRadius: 4/2,
-    position: 'absolute',
-    bottom: '10%'
-}
 });
