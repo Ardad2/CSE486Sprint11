@@ -13,7 +13,6 @@ import { StatusBar } from 'expo-status-bar';
 
 
 
-
 import BehaviorItem from '../../components/BehaviorItem';
 import BehaviorInput from '../../components/BehaviorInput';
 import IconButton from '../../components/IconButton';
@@ -21,9 +20,8 @@ import IconButton from '../../components/IconButton';
 import BehaviorDetailScreen from './BehaviorDetailScreen';
 import BehaviorFormScreen from './BehaviorFormScreen';
 
-import PropTypes from 'prop-types';
-import moment from 'moment/min/moment-with-locales';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import WeeklyCalendar  from '../../components/Calendar/WeeklyCalendar';
+
 
 import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
 
@@ -46,7 +44,6 @@ const behaviorList = currUser[0].behaviorLogs;
 /* Below are examples for calendar behaviors which are not based off of actual user info. 
 Once the database is connected, the behavior information will be based off of the user's info */
 
-  
 
   const [ date, setDate ] = useState(null);
 
