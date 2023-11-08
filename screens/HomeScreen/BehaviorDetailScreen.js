@@ -6,6 +6,9 @@ import { incrementBehavior, decrementBehavior } from '../../store/redux/users';
 
 function BehaviorDetailScreen( {route, navigation} )
 {
+    function pressHandler(name) {
+        navigation.navigate("HomeScreen");
+      }
 
     const dispatch = useDispatch();
 
@@ -64,6 +67,9 @@ function BehaviorDetailScreen( {route, navigation} )
             <Text>{behaviorList[behaviorIndex].count} / {behaviorList[behaviorIndex].goalCount}</Text>
             <View style={styles.button} >
                 <Button title="-" onPress={decrementGoalCount} color="black"/>
+            </View>
+            <View style={styles.button} >
+                <Button title="GO BACK" onPress={pressHandler} color="black"/>
             </View>
             </View>
         
