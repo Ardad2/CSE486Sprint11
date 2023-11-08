@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { useSelector, dispatch, useDispatch } from 'react-redux';
@@ -6,7 +6,7 @@ import { useSelector, dispatch, useDispatch } from 'react-redux';
 import { 
   StyleSheet,  
   View, 
-  FlatList, Button, Text
+  FlatList, Button, Text, 
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
@@ -137,14 +137,13 @@ Once the database is connected, the behavior information will be based off of th
 <View> 
        <Text style={styles.headingText}>Welcome back {authToken.email} What did you do today?</Text>
      </View>
-
      <View style={styles.plusButton}>  
     <IconButton icon="add-circle-outline" color="black" onPress={startAddBehaviorHandler} />
     </View>  
 
 
 <View style={styles.container}>
-<WeeklyCalendar events={currUser[0].behaviorLogs} style={{ }} />
+<WeeklyCalendar style={{ }} />
 </View>
 </>
 
