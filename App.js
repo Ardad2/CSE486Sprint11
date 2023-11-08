@@ -1,35 +1,34 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 //import {firebase} from '../Firebase/firebase';
 
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-import WeeklyCalendar  from './components/Calendar/WeeklyCalendar';
+import WeeklyCalendar from './components/Calendar/WeeklyCalendar';
 //import WeeklyCalendar from 'react-native-weekly-calendar';
 
 
-
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import Home from './screens/HomeScreen/HomeScreen';
 import Settings from './screens/Settings';
-import { Ionicons } from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 
 import HomeStackScreen from './screens/HomeScreen/HomeStackScreen';
 import LoginScreen from './screens/AuthScreen/LoginScreen';
 import SignupScreen from './screens/AuthScreen/SignupScreen';
 
-import { useSelector, dispatch , useDispatch} from 'react-redux';
-import { authenticateAuthTokens, logoutAuthTokens } from './store/redux/authTokens';
+import {useSelector, dispatch, useDispatch} from 'react-redux';
+import {authenticateAuthTokens, logoutAuthTokens} from './store/redux/authTokens';
 
-import { Colors } from './constants/styles';
+import {Colors} from './constants/styles';
 
 
-import { Provider } from 'react-redux';
-import { store } from './store/redux/store';
+import {Provider} from 'react-redux';
+import {store} from './store/redux/store';
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -58,94 +57,136 @@ if (!firebase.apps.length) {
 firebase.initializeApp(config);
 */
 
+// const Drawer = createDrawerNavigator();
+//
+// function MyDrawer() {
+//   return (
+//     <Drawer.Navigator>
+//       <Drawer.Screen name="Home" component={Home} />
+//       <Drawer.Screen name="Settings" component={Settings} />
+//     </Drawer.Navigator>
+//   );
+// }
 
+// function HomeScreen({ navigation }) {
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F0F0F0' }}>
+//       <Text>Home Screen</Text>
+//       <Button
+//         title="Go to Settings"
+//         onPress={() => navigation.navigate('Settings')}
+//       />
+//     </View>
+//   );
+// }
+
+// function SettingsScreen({ navigation }) {
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F0F0F0' }}>
+//       <Text>Settings Screen</Text>
+//       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+//     </View>
+//   );
+// }
+
+// function AuthStack is for the login and signup screens
 function AuthStack() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: "F0F0F0" },
-        headerTintColor: 'black',
-        contentStyle: { backgroundColor: "#FAFAFA" },
-      }}
-    >
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="SignUp" component={SignupScreen} />
-    </Stack.Navigator>
-  );
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: {backgroundColor: "F0F0F0"},
+                headerTintColor: 'black',
+                contentStyle: {backgroundColor: "#FAFAFA"},
+            }}
+        >
+            <Stack.Screen name="Login" component={LoginScreen}/>
+            <Stack.Screen name="SignUp" component={SignupScreen}/>
+        </Stack.Navigator>
+    );
 }
 
+// function AuthenticatedStack is for the home screen and the settings screen
 function AuthenticatedStack() {
-  return (
-    <BottomTab.Navigator initialRouteName="Home" >
+    return (
+        <BottomTab.Navigator initialRouteName="Home">
 
-    <BottomTab.Screen 
-    name="Home" 
-    component={HomeStackScreen}
-    options = {{ headerShown: false, tabBarLabel: 'Today', tabBarIcon: ({color, size}) => (
-      <Ionicons name="home-outline" size="25px"/>
-    ), 
-  
-  
-  
-  }} 
-    />
-    <BottomTab.Screen 
-    name="Habit Stat" 
-    component={Home}  
-      options = {{ tabBarLabel: 'Habit Stat', tabBarIcon: ({color, size}) => (
-              <Ionicons name="document-text-outline" size="25px"/>
-            ), }} 
-    />
-    <BottomTab.Screen 
-    name="Group" 
-    component={Home} 
-    options = {{ tabBarLabel: 'Group', tabBarIcon: ({color, size}) => (
-      <Ionicons name="people-outline" size="25px"/>
-    ), }} 
-    />
-    <BottomTab.Screen 
-    name="Report" 
-    component={Home}
-    options = {{ tabBarLabel: 'Report', tabBarIcon: ({color, size}) => (
-      <Ionicons name="clipboard-outline" size="25px"/>
-    ), }} 
-     />
-    <BottomTab.Screen 
-    name="Settings" 
-    component={Settings} 
-    options = {{ tabBarLabel: 'Settings', tabBarIcon: ({color, size}) => (
-      <Ionicons name="cog-outline" size="25px"/>
-    ), }} 
-    />
-  </BottomTab.Navigator>
-  );
+            <BottomTab.Screen
+                name="Home"
+                component={HomeStackScreen}
+                options={{
+                    headerShown: false, tabBarLabel: 'Today', tabBarIcon: ({color, size}) => (
+                        <Ionicons name="home-outline" size="25px"/>
+                    ),
+
+
+                }}
+            />
+            <BottomTab.Screen
+                name="Habit Stat"
+                component={Home}
+                options={{
+                    tabBarLabel: 'Habit Stat', tabBarIcon: ({color, size}) => (
+                        <Ionicons name="document-text-outline" size="25px"/>
+                    ),
+                }}
+            />
+            <BottomTab.Screen
+                name="Group"
+                component={Home}
+                options={{
+                    tabBarLabel: 'Group', tabBarIcon: ({color, size}) => (
+                        <Ionicons name="people-outline" size="25px"/>
+                    ),
+                }}
+            />
+            <BottomTab.Screen
+                name="Report"
+                component={Home}
+                options={{
+                    tabBarLabel: 'Report', tabBarIcon: ({color, size}) => (
+                        <Ionicons name="clipboard-outline" size="25px"/>
+                    ),
+                }}
+            />
+            <BottomTab.Screen
+                name="Settings"
+                component={Settings}
+                options={{
+                    tabBarLabel: 'Settings', tabBarIcon: ({color, size}) => (
+                        <Ionicons name="cog-outline" size="25px"/>
+                    ),
+                }}
+            />
+        </BottomTab.Navigator>
+    );
 }
 
+// function Navigation is for the navigation container
 function Navigation() {
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const authToken = useSelector( (state) => state.authTokens.data[0]); 
+    const authToken = useSelector((state) => state.authTokens.data[0]);
 
 
-  return (
-    <NavigationContainer> 
-      {!authToken.isAuthenticated && <AuthStack />}
-      {authToken.isAuthenticated && <AuthenticatedStack />}
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            {!authToken.isAuthenticated && <AuthStack/>}
+            {authToken.isAuthenticated && <AuthenticatedStack/>}
+        </NavigationContainer>
+    );
 }
 
 
+// function App is for the app
 export default function App() {
 
 
-
-  return (
-    <Provider store={store}> 
-    <Navigation />
-    </Provider>
-  );
+    return (
+        <Provider store={store}>
+            <Navigation/>
+        </Provider>
+    );
 }
 
 
@@ -173,11 +214,12 @@ export default function App() {
 
 */
 
+// styles is for the styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
