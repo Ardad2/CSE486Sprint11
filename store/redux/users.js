@@ -137,7 +137,8 @@ const usersSlice = createSlice({
 
             var startDate = new Date(action.payload.startDate.substring(0,4)
                 ,action.payload.startDate.substring(5,7),
-                action.payload.startDate.substring(8,10 );
+                action.payload.startDate.substring(8,10)
+            );
 
             //Add the first two dates:
 
@@ -145,7 +146,7 @@ const usersSlice = createSlice({
                 ,action.payload.endDate.substring(5,7),
                 action.payload.endDate.substring(8,10) );
 
-                state.users[index].behaviorLogs.push({
+                /*state.users[index].behaviorLogs.push({
                     behaviorID:action.payload.behaviorID,
                     behaviorLogID:Math.random().toString(),
                     behaviorName:action.payload.behaviorName,
@@ -157,6 +158,49 @@ const usersSlice = createSlice({
                     memo:action.payload.memo,
                     icon:action.payload.icon
                 });
+
+                state.users[index].behaviorLogs.push({
+                    behaviorID:action.payload.behaviorID,
+                    behaviorLogID:Math.random().toString(),
+                    behaviorName:action.payload.behaviorName,
+                    count:action.payload.count,
+                    date:action.action.payload.endDate,
+                    goalCount:action.action.payload.goalCount,
+                    goalMeasurment:action.payload.goalMeasurment,
+                    time:action.payload.time,
+                    memo:action.payload.memo,
+                    icon:action.payload.icon
+                });
+                */
+
+                let currentDate = startDate;
+
+                while (currentDate <= endDate)
+                {
+                    var year = currentDate.toLocaleString("default", { year: "numeric" });
+                    var month = currentDate.toLocaleString("default", { month: "2-digit" });
+                    var day = currentDate.toLocaleString("default", { day: "2-digit" });
+                    var formattedDate = year + "-" + month + "-" + day;
+
+                    state.users[index].behaviorLogs.push({
+                        behaviorID:action.payload.behaviorID,
+                        behaviorLogID:Math.random().toString(),
+                        behaviorName:action.payload.behaviorName,
+                        count:action.payload.count,
+                        date:action.action.payload.formattedDate,
+                        goalCount:action.action.payload.goalCount,
+                        goalMeasurment:action.payload.goalMeasurment,
+                        time:action.payload.time,
+                        memo:action.payload.memo,
+                        icon:action.payload.icon
+                    });
+
+
+                    currentDate = currentDate.setDate(currentDate.getDate() + 1);
+                }
+
+
+
         },
         
         incrementBehavior: (state, action) => {
