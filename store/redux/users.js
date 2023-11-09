@@ -128,7 +128,7 @@ const usersSlice = createSlice({
                     frequency: action.payload.frequency,
                     goalCount: action.payload.goalCount,
                     goalMeasurment: action.payload.goalMeasurment,
-                    name: action.payload.name,
+                    name: action.payload.behaviorName,
                     type: action.payload.type,
                     icon: action.payload.icon,
                 }

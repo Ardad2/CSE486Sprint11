@@ -101,7 +101,7 @@ export default function BehaviorFormScreen( {route, navigation} )
             description:"",
             startDate: startDate,
             endDate: endDate,
-            name: enteredName,
+            behaviorName: enteredName,
             icon: enteredIcon,
             frequency: "Daily",
             count: 0,
