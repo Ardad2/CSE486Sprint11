@@ -137,14 +137,14 @@ const usersSlice = createSlice({
             //Date(year, month, day)
 
             var startDate = new Date(action.payload.startDate.substring(0,4)
-                ,action.payload.startDate.substring(5,7),
+                ,action.payload.startDate.substring(5,7)-1,
                 action.payload.startDate.substring(8,10)
             );
 
             //Add the first two dates:
 
             var endDate = new Date(action.payload.endDate.substring(0,4)
-                ,action.payload.endDate.substring(5,7),
+                ,action.payload.endDate.substring(5,7)-1,
                 action.payload.endDate.substring(8,10) );
 
                 /*state.users[index].behaviorLogs.push({
@@ -176,7 +176,7 @@ const usersSlice = createSlice({
 
                 let currentDate = startDate;
                 console.log(startDate.toDateString());
-                console.log(currentdate.toDateString());
+                console.log(currentDate.toDateString());
                 console.log(endDate.toDateString());
 
                 while (currentDate <= endDate)
