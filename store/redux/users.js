@@ -118,6 +118,21 @@ const usersSlice = createSlice({
                 }
             }
 
+            state.users[index].behaviors.push(
+                {
+                    behaviorID: action.payload.behaviorID,
+                    description: action.payload.behaviorID,
+                    startDate: action.payload.behaviorID,
+                    endDate: action.payload.behaviorID,
+                    frequency: action.payload.behaviorID,
+                    goalCount: action.payload.behaviorID,
+                    goalMeasurment: action.payload.behaviorID,
+                    name: action.payload.behaviorID,
+                    type: action.payload.behaviorID,
+                    icon: action.payload.behaviorID,
+                }
+            )
+
 
             state.users[index].behaviorLogs.push({
                 id: action.payload.id,
@@ -129,6 +144,10 @@ const usersSlice = createSlice({
                 date: action.payload.date,
                 type: action.payload.type,
             });
+
+            state.users[index].behaviors.push({
+
+            })
         },
         
         incrementBehavior: (state, action) => {
