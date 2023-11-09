@@ -22,8 +22,8 @@ const WeeklyCalendar = props => {
 
 
 
-    function pressHandler(name) {
-        navigation.navigate("BehaviorDetailScreen", { name: name});
+    function pressHandler(name, id, behaviorID, date) {
+        navigation.navigate("BehaviorDetailScreen", { name: name, id: id, behaviorID: behaviorID, date: date});
       }
 
       const authToken = useSelector( (state) => state.authTokens.data[0]); 

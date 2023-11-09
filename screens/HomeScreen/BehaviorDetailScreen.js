@@ -21,19 +21,24 @@ function BehaviorDetailScreen( {route, navigation} )
     const currUser = userList.filter(user => user.username == authToken.email);
     const behaviorList = currUser[0].behaviorLogs;
 
-    var behaviorIndex = 0;
 
-    for (var i = 0; i < behaviorList.length ; i++)
-    {                
-        if (behaviorList[i].behaviorLogID == props.id && behaviorList[i].behaviorID == props.behaviorID) {
-            behaviorIndex = i;
-        }
-    }
+
 
 
 
     const name = route.params.name;
+    const id = route.params.id;
+    const behaviorID = route.params.behaviorID;
+    const date = route.params.date;
 
+    var behaviorIndex = 0;
+
+    for (var i = 0; i < behaviorList.length ; i++)
+    {                
+        if (behaviorList[i].behaviorLogID == id && behaviorList[i].behaviorID == behaviorID && behaviorList[i].date == date) {
+            behaviorIndex = i;
+        }
+    }
 
     function decrementGoalCount() {
         console.log("Decreasing!" + name);
@@ -69,9 +74,6 @@ function BehaviorDetailScreen( {route, navigation} )
             <Text>{behaviorList[behaviorIndex].count} / {behaviorList[behaviorIndex].goalCount}</Text>
             <View style={styles.button} >
                 <Button title="-" onPress={decrementGoalCount} color="black"/>
-            </View>
-            <View style={styles.button} >
-                <Button title="GO BACK" onPress={pressHandler} color="black"/>
             </View>
             </View>
         
