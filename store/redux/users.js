@@ -188,24 +188,26 @@ const usersSlice = createSlice({
                     var month = currentDate.toLocaleString("default", { month: "2-digit" });
                     var day = currentDate.toLocaleString("default", { day: "2-digit" });
                     var formattedDate = year + "-" + month + "-" + day;
+                    console.log(formattedDate);
                    
-                    console.log(currentDate.toDateString());
+                    //console.log(currentDate.toDateString());
 
                     state.users[index].behaviorLogs.push({
                         behaviorID:action.payload.behaviorID,
                         behaviorLogID:Math.random().toString(),
                         behaviorName:action.payload.behaviorName,
                         count:action.payload.count,
-                        date:action.payload.formattedDate,
+                        date:formattedDate,
                         goalCount:action.payload.goalCount,
                         goalMeasurment:action.payload.goalMeasurment,
                         time:"",
                         memo:"",
                         icon:action.payload.icon
                     });
-                    console.log(currentDate.toDateString());
+                    //console.log(currentDate.toDateString());
 
                     currentDate = currentDate.setDate(currentDate.getDate() + 1);
+                    console.log("Added 1!");
                 }
 
 
