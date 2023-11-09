@@ -97,15 +97,16 @@ const currUser = userList.filter(user => user.username == authToken.email);
                         return (
                             <View key={i + "-" + j}>
                         <BehaviorItem 
-
-                        id = {event.id}
-                        name = {event.name}
-                        icon={event.icon}
+                        behaviorID={event.behaviorID}
+                        behaviorLogID={event.behaviorLogID}
+                        behaviorName={event.behaviorName}
                         count={event.count}
-                        goalCount={event.goalCount}
-                        memo={event.memo}
                         date={event.date}
-                        type={event.type}
+                        goalCount={event.goalCount}
+                        goalMeasurment={event.goalMeasurment}
+                        time={event.time}
+                        memo={event.memo}
+                        icon={event.icon}
                         onPress={pressHandler}
                         />
                             </View>
