@@ -1,6 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { 
+  StyleSheet,  
+  View, 
+  FlatList, Button, Text, 
+  ScrollView, TouchableOpacity, TouchableWithoutFeedback, Modal, Platform, ActivityIndicator, Pressable
+} from 'react-native';
 import { useState } from 'react';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens'
@@ -10,43 +15,22 @@ export default function BehaviorStatScreen() {
 
   const authToken = useSelector( (state) => state.authTokens.data[0]); 
 
-  const dispatch = useDispatch();
+  const userList = useSelector( (state) => state.users.users);
+  const currUser = userList.filter(user => user.username == authToken.email);
+  const behaviorList = currUser[0].behaviors;
 
-  function logout() {
-    dispatch(logoutAuthTokens());
- }
 
-/*
-Below is the buttons for navigating to:
- - Profile
- - Vacation Mode
- - Light Mode
- - Dark Mode
- - Sound Effects on/off
- -Logging out
- 
- Still need to create a settings
- page that is pleasing to look at.
- Also buttons is more convenient
- than filter drop downs.
- 
- Potentially want to be able to edit your 
- username, and name, profile pic, in the settings
- page as well. but could also do that on the profile itself.
- */
+
   return (
     <View style={styles.container}>
       <Text>To do: Behavior Stat Screen</Text>
+      <FlatList data={behaviorList}>
+
+      </FlatList>
 
     </View>
   );
 }
-/*
-would be cool to add into settings a light screen
-or a dark screen option
-Im sure it would be relatively easy to implement and something I can look into.
-*/
-
 
 
 const styles = StyleSheet.create({
