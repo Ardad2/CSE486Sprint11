@@ -182,6 +182,8 @@ const usersSlice = createSlice({
                     var month = currentDate.toLocaleString("default", { month: "2-digit" });
                     var day = currentDate.toLocaleString("default", { day: "2-digit" });
                     var formattedDate = year + "-" + month + "-" + day;
+                   
+                    console.log(currentDate.toDateString());
 
                     state.users[index].behaviorLogs.push({
                         behaviorID:action.payload.behaviorID,
@@ -197,7 +199,7 @@ const usersSlice = createSlice({
                     });
                     console.log(currentDate.toDateString());
 
-                    nextDate = currentDate.getDate() + 1;
+                    nextDate = currentDate+ 1;
                     currentDate = currentDate.setDate(nextDate);
                 }
 
