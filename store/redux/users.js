@@ -174,7 +174,10 @@ const usersSlice = createSlice({
                 });
                 */
 
-                let currentDate = startDate;
+                let currentDate = new Date(action.payload.startDate.substring(0,4)
+                ,action.payload.startDate.substring(5,7)-1,
+                action.payload.startDate.substring(8,10)
+            );
                 console.log(startDate.toDateString());
                 console.log(currentDate.toDateString());
                 console.log(endDate.toDateString());
@@ -202,7 +205,7 @@ const usersSlice = createSlice({
                     });
                     console.log(currentDate.toDateString());
 
-                    currentDate = currentDate.setDate(currentDate+1);
+                    currentDate = currentDate.setDate(currentDate.getDate() + 1);
                 }
 
 
