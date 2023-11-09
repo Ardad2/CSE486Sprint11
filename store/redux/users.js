@@ -196,8 +196,8 @@ const usersSlice = createSlice({
                         icon:action.payload.icon
                     });
 
-
-                    currentDate = currentDate.setDate(currentDate.getDate() + 1);
+                    nextDate = currentDate.getDate() + 1;
+                    currentDate = currentDate.setDate(nextDate);
                 }
 
 
