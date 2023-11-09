@@ -182,6 +182,12 @@ const usersSlice = createSlice({
                 console.log(currentDate.toDateString());
                 console.log(endDate.toDateString());
 
+                const addDays = function (days) {
+                    const date = new Date(this.valueOf())
+                    date.setDate(date.getDate() + days)
+                    return date
+                  }
+
                 while (currentDate <= endDate)
                 {
                     var year = currentDate.toLocaleString("default", { year: "numeric" });
@@ -206,7 +212,8 @@ const usersSlice = createSlice({
                     });
                     //console.log(currentDate.toDateString());
 
-                    currentDate = currentDate.setDate(currentDate.getDate() + 1);
+                    currentDate = addDays.call(currentDate, 1);
+
                     console.log("Added 1!");
                 }
 
