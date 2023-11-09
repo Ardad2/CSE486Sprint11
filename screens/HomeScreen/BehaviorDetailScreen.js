@@ -45,7 +45,7 @@ function BehaviorDetailScreen( {route, navigation} )
         dispatch(decrementBehavior(
             {
                 username: authToken.email,
-                behaviorName: name,
+                behaviorName: behaviorList[behaviorIndex].behaviorName,
                 date: behaviorList[behaviorIndex].date
             }
           ));
@@ -56,7 +56,7 @@ function BehaviorDetailScreen( {route, navigation} )
         dispatch(incrementBehavior(
             {
                 username: authToken.email,
-                behaviorName: name,
+                behaviorName: behaviorList[behaviorIndex].behaviorName,
                 date: behaviorList[behaviorIndex].date
             }
           ));
