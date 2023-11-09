@@ -98,7 +98,7 @@ const currUser = userList.filter(user => user.username == authToken.email);
                             <View key={i + "-" + j}>
                         <BehaviorItem 
                         behaviorID={event.behaviorID}
-                        behaviorLogID={event.behaviorLogID}
+                        id={event.behaviorLogID}
                         behaviorName={event.behaviorName}
                         count={event.count}
                         date={event.date}
