@@ -190,8 +190,8 @@ const usersSlice = createSlice({
                         date:action.action.payload.formattedDate,
                         goalCount:action.action.payload.goalCount,
                         goalMeasurment:action.payload.goalMeasurment,
-                        time:action.payload.time,
-                        memo:action.payload.memo,
+                        time:"",
+                        memo:"",
                         icon:action.payload.icon
                     });
 

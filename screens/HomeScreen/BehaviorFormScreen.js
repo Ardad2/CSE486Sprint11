@@ -32,6 +32,9 @@ export default function BehaviorFormScreen( {route, navigation} )
     const [enteredIcon, setEnteredIcon] = useState('');
     const [enteredGoalCount, setEnteredGoalCount] = useState('');
     const [type, setType] = useState(behaviorName)
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
 
   // set user info
     function nameInputHandler(enteredName) {
@@ -61,6 +64,20 @@ export default function BehaviorFormScreen( {route, navigation} )
         
           };
 
+      function startDateInputHandler(enteredStartDate) {
+
+    
+          setStartDate(enteredStartDate);
+        
+          };
+
+          function endDateInputHandler(enteredEndDate) {
+
+    
+            setEndDate(enteredEndDate);
+          
+            };
+
  
       function addBehaviorHandler() {
          /*dispatch(addBehavior(
@@ -80,13 +97,16 @@ export default function BehaviorFormScreen( {route, navigation} )
          dispatch(addUserBehavior(
           {
             username: authToken.email,
-            id: Math.random().toString(),
+            behaviorID: Math.random().toString(),
+            description:"",
+            startDate: startDate,
+            endDate: endDate,
             name: enteredName,
             icon: enteredIcon,
+            frequency: "Daily",
             count: 0,
             goalCount: enteredGoalCount,
-            memo: "",
-            date: date,
+            goalMeasurment: "",
             type: type
           }
         ));
@@ -138,6 +158,20 @@ export default function BehaviorFormScreen( {route, navigation} )
 
         onChangeText={goalCountInputHandler}
          value={enteredGoalCount}
+         />
+         <Text style ={styles.textStyle}>Start Date</Text>
+         <TextInput 
+        style={styles.textInput} 
+
+        onChangeText={startDateInputHandler}
+         value={startDate}
+         />
+         <Text style ={styles.textStyle}>End Date</Text>
+         <TextInput 
+        style={styles.textInput} 
+
+        onChangeText={endDateInputHandler}
+         value={endDate}
          />
 
 
