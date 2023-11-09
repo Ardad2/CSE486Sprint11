@@ -2,6 +2,7 @@ import {View, Text, Button, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { incrementBehavior, decrementBehavior } from '../../store/redux/users';
+import { produceWithPatches } from 'immer';
 
 
 function BehaviorDetailScreen( {route, navigation} )
@@ -24,7 +25,7 @@ function BehaviorDetailScreen( {route, navigation} )
 
     for (var i = 0; i < behaviorList.length ; i++)
     {                
-        if (behaviorList[i].name == route.params.name) {
+        if (behaviorList[i].behaviorLogID == props.id && behaviorList[i].behaviorID == props.behaviorID) {
             behaviorIndex = i;
         }
     }

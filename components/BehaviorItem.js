@@ -7,7 +7,7 @@ function BehaviorItem(props) {
     const navigation = useNavigation();
 
     function pressHandler() {
-      props.onPress(props.behaviorName)
+      props.onPress(props.id, props.behaviorID)
     }
     
 
