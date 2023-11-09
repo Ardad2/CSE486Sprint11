@@ -20,6 +20,7 @@ import {Ionicons} from '@expo/vector-icons';
 import HomeStackScreen from './screens/HomeScreen/HomeStackScreen';
 import LoginScreen from './screens/AuthScreen/LoginScreen';
 import SignupScreen from './screens/AuthScreen/SignupScreen';
+import BehaviorStatScreen from './screens/StatisticScreens/BehaviorStatScreen';
 
 import {useSelector, dispatch, useDispatch} from 'react-redux';
 import {authenticateAuthTokens, logoutAuthTokens} from './store/redux/authTokens';
