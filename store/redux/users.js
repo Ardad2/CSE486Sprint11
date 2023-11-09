@@ -132,6 +132,20 @@ const usersSlice = createSlice({
                     icon: action.payload.behaviorID,
                 }
             )
+            
+            //Date(year, month, day)
+
+            var startDate = new Date(action.payload.startDate.substring(0,4)
+                ,action.payload.startDate.substring(5,7),
+                action.payload.startDate.substring(8,10 );
+
+            var endDate = new Date(action.payload.endDate.substring(0,4)
+                ,action.payload.endDate.substring(5,7),
+                action.payload.endDate.substring(8,10) );
+
+
+
+
 
 
             state.users[index].behaviorLogs.push({
@@ -144,10 +158,6 @@ const usersSlice = createSlice({
                 date: action.payload.date,
                 type: action.payload.type,
             });
-
-            state.users[index].behaviors.push({
-
-            })
         },
         
         incrementBehavior: (state, action) => {
