@@ -51,6 +51,7 @@ const usersSlice = createSlice({
             state.users.push({
                 id: newId,
                 username: action.payload.username,
+                behaviors: [],
                 behaviorLogs: [
                 ]
             });
@@ -131,8 +132,8 @@ const usersSlice = createSlice({
                     type: action.payload.type,
                     icon: action.payload.icon,
                 }
-            )
-            
+            );
+
             //Date(year, month, day)
 
             var startDate = new Date(action.payload.startDate.substring(0,4)
