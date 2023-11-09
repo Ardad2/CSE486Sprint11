@@ -199,8 +199,7 @@ const usersSlice = createSlice({
                     });
                     console.log(currentDate.toDateString());
 
-                    nextDate = currentDate+ 1;
-                    currentDate = currentDate.setDate(nextDate);
+                    currentDate = currentDate.setDate(endDate);
                 }
 
 
