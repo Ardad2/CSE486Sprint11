@@ -121,15 +121,15 @@ const usersSlice = createSlice({
             state.users[index].behaviors.push(
                 {
                     behaviorID: action.payload.behaviorID,
-                    description: action.payload.behaviorID,
-                    startDate: action.payload.behaviorID,
-                    endDate: action.payload.behaviorID,
-                    frequency: action.payload.behaviorID,
-                    goalCount: action.payload.behaviorID,
-                    goalMeasurment: action.payload.behaviorID,
-                    name: action.payload.behaviorID,
-                    type: action.payload.behaviorID,
-                    icon: action.payload.behaviorID,
+                    description: action.payload.description,
+                    startDate: action.payload.startDate,
+                    endDate: action.payload.endDate,
+                    frequency: action.payload.frequency,
+                    goalCount: action.payload.goalCount,
+                    goalMeasurment: action.payload.goalMeasurment,
+                    name: action.payload.name,
+                    type: action.payload.type,
+                    icon: action.payload.icon,
                 }
             )
             
@@ -139,25 +139,24 @@ const usersSlice = createSlice({
                 ,action.payload.startDate.substring(5,7),
                 action.payload.startDate.substring(8,10 );
 
+            //Add the first two dates:
+
             var endDate = new Date(action.payload.endDate.substring(0,4)
                 ,action.payload.endDate.substring(5,7),
                 action.payload.endDate.substring(8,10) );
 
-
-
-
-
-
-            state.users[index].behaviorLogs.push({
-                id: action.payload.id,
-                name: action.payload.name,
-                icon: action.payload.icon,
-                count: action.payload.count,
-                goalCount: action.payload.goalCount,
-                memo: action.payload.memo,
-                date: action.payload.date,
-                type: action.payload.type,
-            });
+                state.users[index].behaviorLogs.push({
+                    behaviorID:action.payload.behaviorID,
+                    behaviorLogID:Math.random().toString(),
+                    behaviorName:action.payload.behaviorName,
+                    count:action.payload.count,
+                    date:action.action.payload.startDate,
+                    goalCount:action.action.payload.goalCount,
+                    goalMeasurment:action.payload.goalMeasurment,
+                    time:action.payload.time,
+                    memo:action.payload.memo,
+                    icon:action.payload.icon
+                });
         },
         
         incrementBehavior: (state, action) => {
