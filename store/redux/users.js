@@ -56,7 +56,7 @@ const usersSlice = createSlice({
                 ]
             });
 
-            state.users[newId].behaviorLogs.push({
+            /*state.users[newId].behaviorLogs.push({
                 id: Math.random().toString(),
                 name: "Go for a walk",
                 icon: "TEST",
@@ -95,7 +95,7 @@ const usersSlice = createSlice({
                 memo: "",
                 date: "2023-10-29",
                 type: "YES"
-            });
+            });*/
         
 
 
