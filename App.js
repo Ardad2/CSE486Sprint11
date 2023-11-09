@@ -124,7 +124,7 @@ function AuthenticatedStack() {
             />
             <BottomTab.Screen
                 name="Habit Stat"
-                component={Home}
+                component={BehaviorStatScreen}
                 options={{
                     tabBarLabel: 'Habit Stat', tabBarIcon: ({color, size}) => (
                         <Ionicons name="document-text-outline" size="25px"/>
