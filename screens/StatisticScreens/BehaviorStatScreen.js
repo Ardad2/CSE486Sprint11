@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button} from 'react-native';
 import { useState } from 'react';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
-import { authenticateAuthTokens, logoutAuthTokens } from '../store/redux/authTokens';
+import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens'
 
 
 export default function BehaviorStatScreen() {
