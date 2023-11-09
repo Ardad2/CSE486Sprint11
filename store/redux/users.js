@@ -6,6 +6,9 @@ const usersSlice = createSlice({
         users: [ {
             id: 0,
             username: "John",
+            behaviors:[
+
+            ],
             behaviorLogs: [
 
             ]
