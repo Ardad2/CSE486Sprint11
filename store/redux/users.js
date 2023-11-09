@@ -175,6 +175,9 @@ const usersSlice = createSlice({
                 */
 
                 let currentDate = startDate;
+                console.log(startDate.toDateString());
+                console.log(currentdate.toDateString());
+                console.log(endDate.toDateString());
 
                 while (currentDate <= endDate)
                 {
@@ -199,7 +202,7 @@ const usersSlice = createSlice({
                     });
                     console.log(currentDate.toDateString());
 
-                    currentDate = currentDate.setDate(endDate);
+                    currentDate = currentDate.setDate(currentDate+1);
                 }
 
 
