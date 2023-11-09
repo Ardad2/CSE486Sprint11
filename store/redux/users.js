@@ -195,6 +195,7 @@ const usersSlice = createSlice({
                         memo:"",
                         icon:action.payload.icon
                     });
+                    console.log(currentDate.toDateString());
 
                     nextDate = currentDate.getDate() + 1;
                     currentDate = currentDate.setDate(nextDate);
