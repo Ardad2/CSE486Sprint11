@@ -49,8 +49,10 @@ function BehaviorStatItem(props) {
           ,behaviorList[i].date.substring(5,7)-1,
           behaviorList[i].date.substring(8,10)
       );
+      let today = new Date();
 
-          if (thisDate <= date)
+
+          if (thisDate <= today)
           {
           console.log("There is lesser date!");
           totalMeasurment+=behaviorList[i].goalCount;
