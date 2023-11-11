@@ -19,7 +19,7 @@ export default function BehaviorStatScreen() {
 
   const userList = useSelector( (state) => state.users.users);
   const currUser = userList.filter(user => user.username == authToken.email);
-  const behaviorList = currUser[0].behaviorLogs;
+  const behaviorList = currUser[0].behaviors;
 
 
 
@@ -36,7 +36,8 @@ export default function BehaviorStatScreen() {
           frequency =  {itemData.frequency}
           goalCount = {itemData.goalCount}
           goalMeasurment =  {itemData.goalMeasurment}
-          name = {itemData.name}
+          name =  "Test"
+          //{itemData.name}
           type =  {itemData.type}
           icon =  {itemData.icon}
 
