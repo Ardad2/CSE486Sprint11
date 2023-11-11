@@ -1,3 +1,4 @@
+import {useState, useEffect, useRef} from 'react';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -17,6 +18,15 @@ function BehaviorStatItem(props) {
     const userList = useSelector( (state) => state.users.users);
     const currUser = userList.filter(user => user.username == authToken.email);
     const behaviorList = currUser[0].behaviorLogs;
+
+    const [ date, setDate ] = useState(null);
+
+    useEffect( () => {
+      let today = new Date();
+      let date = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+      setDate(date);
+      
+    }, []);
   
 
     function pressHandler() {
@@ -24,17 +34,28 @@ function BehaviorStatItem(props) {
       )
     }
 
-    function calculateAverage() 
+    function calculateGoalAchievementRate() 
     {
       var totalMeasurment = 0;
       var completedMeasurment = 0;
 
       for (var i = 0; i < behaviorList.length; i++)
       {
+
         if (behaviorList[i].behaviorID == props.behaviorID)
         {
+
+          let thisDate = new Date(behaviorList[i].date.substring(0,4)
+          ,behaviorList[i].date.substring(5,7)-1,
+          behaviorList[i].date.substring(8,10)
+      );
+
+          if (thisDate <= date)
+          {
+          console.log("There is lesser date!");
           totalMeasurment+=behaviorList[i].goalCount;
           completedMeasurment+=behaviorList[i].count;
+          }
         }
       }
 
@@ -50,7 +71,8 @@ function BehaviorStatItem(props) {
         style={({pressed}) => pressed && styles.pressedItem}
         > 
         <View> 
-        <Text style={styles.behaviorText}>{props.name} {calculateAverage()} </Text>
+        <Text style={styles.behaviorText}>{props.name}</Text>
+      <Text>Goal Achievement rate: {calculateGoalAchievementRate()}</Text>
         </View>
         </Pressable>
         </View>
