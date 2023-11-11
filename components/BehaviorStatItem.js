@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-function BehaviorItem(props) {
+function BehaviorStatItem(props) {
 
     const navigation = useNavigation();
 
@@ -27,7 +27,7 @@ function BehaviorItem(props) {
     );
 }
 
-export default BehaviorItem;
+export default BehaviorStatItem;
 
 const styles = StyleSheet.create({
   behaviorItem: {

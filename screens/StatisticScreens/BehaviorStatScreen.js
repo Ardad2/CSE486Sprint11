@@ -10,6 +10,8 @@ import { useState } from 'react';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens'
 
+import BehaviorStatItem from '../../components/BehaviorStatItem';
+
 
 export default function BehaviorStatScreen() {
 
@@ -24,9 +26,28 @@ export default function BehaviorStatScreen() {
   return (
     <View style={styles.container}>
       <Text>To do: Behavior Stat Screen</Text>
-      <FlatList data={behaviorList}>
 
-      </FlatList>
+      <FlatList data={behaviorList} renderItem = {itemData => {
+          return <BehaviorStatItem 
+
+          id = {itemData.item.id}
+          name = {itemData.item.name}
+          icon={itemData.item.icon}
+          count={itemData.item.count}
+          goalCount={itemData.item.goalCount}
+          memo={itemData.item.memo}
+          date={itemData.item.date}
+          type={itemData.item.type}
+
+
+          onDeleteItem={deleteBehaviorHandler}
+          onPress={pressHandler}
+          />
+z
+        }}
+        keyExtractor={(item,index) => {return item.id}} 
+        alwaysBounceVertical={true}
+        /> 
 
     </View>
   );
