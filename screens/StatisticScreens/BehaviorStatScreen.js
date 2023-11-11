@@ -19,7 +19,7 @@ export default function BehaviorStatScreen() {
 
   const userList = useSelector( (state) => state.users.users);
   const currUser = userList.filter(user => user.username == authToken.email);
-  const behaviorList = currUser[0].behaviors;
+  const behaviorList = currUser[0].behaviorLogs;
 
 
 
@@ -45,7 +45,7 @@ export default function BehaviorStatScreen() {
           />
 z
         }}
-        keyExtractor={(item,index) => {return item.behvaiorID}} 
+        //keyExtractor={(item,index) => {return item.behaviorID}} 
         alwaysBounceVertical={true}
         /> 
 
