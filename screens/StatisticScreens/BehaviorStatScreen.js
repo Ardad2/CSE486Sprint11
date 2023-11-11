@@ -29,17 +29,17 @@ export default function BehaviorStatScreen() {
 
       <FlatList data={behaviorList} renderItem = {itemData => {
           return <BehaviorStatItem 
-          behaviorID = {itemData.behaviorID}
-          description = {itemData.description}
-          startDate = {itemData.startDate}
-          endDate =  {itemData.endDate}
-          frequency =  {itemData.frequency}
-          goalCount = {itemData.goalCount}
-          goalMeasurment =  {itemData.goalMeasurment}
-          name =  "Test"
+          behaviorID = {itemData.item.behaviorID}
+          description = {itemData.item.description}
+          startDate = {itemData.item.startDate}
+          endDate =  {itemData.item.endDate}
+          frequency =  {itemData.item.frequency}
+          goalCount = {itemData.item.goalCount}
+          goalMeasurment =  {itemData.item.goalMeasurment}
+          name = {itemData.item.name}
           //{itemData.name}
-          type =  {itemData.type}
-          icon =  {itemData.icon}
+          type =  {itemData.item.type}
+          icon =  {itemData.item.icon}
 
           //onDeleteItem={deleteBehaviorHandler}
           //onPress={pressHandler}
