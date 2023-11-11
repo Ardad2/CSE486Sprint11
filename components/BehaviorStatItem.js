@@ -1,10 +1,18 @@
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import { useSelector, dispatch, useDispatch } from 'react-redux';
+import { authenticateAuthTokens, logoutAuthTokens } from '../store/redux/authTokens';
+
+
+
 
 function BehaviorStatItem(props) {
 
     const navigation = useNavigation();
+
+    const authToken = useSelector( (state) => state.authTokens.data[0]); 
+
 
     const userList = useSelector( (state) => state.users.users);
     const currUser = userList.filter(user => user.username == authToken.email);
@@ -42,7 +50,7 @@ function BehaviorStatItem(props) {
         style={({pressed}) => pressed && styles.pressedItem}
         > 
         <View> 
-        <Text style={styles.behaviorText}>{props.name} {calculatedAverage()} </Text>
+        <Text style={styles.behaviorText}>{props.name} {calculateAverage()} </Text>
         </View>
         </Pressable>
         </View>
