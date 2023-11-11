@@ -26,7 +26,7 @@ export default function BehaviorStatScreen() {
   return (
     <View style={styles.container}>
       <Text>To do: Behavior Stat Screen</Text>
-
+      <View style={styles.behaviorsContainer}>
       <FlatList data={behaviorList} renderItem = {itemData => {
           return <BehaviorStatItem 
           behaviorID = {itemData.item.behaviorID}
@@ -49,7 +49,7 @@ z
         //keyExtractor={(item,index) => {return item.behaviorID}} 
         alwaysBounceVertical={true}
         /> 
-
+        </View>
     </View>
   );
 }
@@ -66,6 +66,9 @@ const styles = StyleSheet.create({
     marginTop: 16,
     backgroundColor: '#F0F0F0',
     flexDirection: "row",
+},
+behaviorsContainer: {
+  flex: 5
 },
 button: {
     width: 100,
