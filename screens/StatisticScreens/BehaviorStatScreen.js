@@ -30,22 +30,23 @@ export default function BehaviorStatScreen() {
       <FlatList data={behaviorList} renderItem = {itemData => {
           return <BehaviorStatItem 
 
-          id = {itemData.item.id}
-          name = {itemData.item.name}
-          icon={itemData.item.icon}
-          count={itemData.item.count}
-          goalCount={itemData.item.goalCount}
-          memo={itemData.item.memo}
-          date={itemData.item.date}
-          type={itemData.item.type}
-
+          behaviorID={itemData.behaviorID}
+          id={itemData.behaviorLogID}
+          behaviorName={itemData.behaviorName}
+          count={itemData.count}
+          date={itemData.date}
+          goalCount={itemData.goalCount}
+          goalMeasurment={itemData.goalMeasurment}
+          time={itemData.time}
+          memo={itemData.memo}
+          icon={itemData.icon}
 
           //onDeleteItem={deleteBehaviorHandler}
           //onPress={pressHandler}
           />
 z
         }}
-        keyExtractor={(item,index) => {return item.id}} 
+        keyExtractor={(item,index) => {return item.behvaiorID}} 
         alwaysBounceVertical={true}
         /> 
 
