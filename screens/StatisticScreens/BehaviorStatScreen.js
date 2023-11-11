@@ -40,8 +40,8 @@ export default function BehaviorStatScreen() {
           type={itemData.item.type}
 
 
-          onDeleteItem={deleteBehaviorHandler}
-          onPress={pressHandler}
+          //onDeleteItem={deleteBehaviorHandler}
+          //onPress={pressHandler}
           />
 z
         }}
