@@ -63,6 +63,36 @@ function BehaviorStatItem(props) {
 
       return (completedMeasurment)/(totalMeasurment);
     }
+
+    function calculateTotalTimeDone()
+    {
+      var totalMeasurment = 0;
+      var completedMeasurment = 0;
+
+      for (var i = 0; i < behaviorList.length; i++)
+      {
+
+        if (behaviorList[i].behaviorID == props.behaviorID)
+        {
+
+          let thisDate = new Date(behaviorList[i].date.substring(0,4)
+          ,behaviorList[i].date.substring(5,7)-1,
+          behaviorList[i].date.substring(8,10)
+      );
+      let today = new Date();
+
+
+          if (thisDate <= today)
+          {
+          console.log("There is lesser date!");
+          totalMeasurment+=behaviorList[i].goalCount;
+          completedMeasurment+=behaviorList[i].count;
+          }
+        }
+      }
+
+      return (completedMeasurment);
+    }
     
 
     return (
@@ -75,6 +105,7 @@ function BehaviorStatItem(props) {
         <View> 
         <Text style={styles.behaviorText}>{props.name}</Text>
       <Text>Goal Achievement rate: {calculateGoalAchievementRate()}</Text>
+      <Text>Total Done: {calculateTotalTimeDone()}</Text>
         </View>
         </Pressable>
         </View>
