@@ -21,6 +21,7 @@ import HomeStackScreen from './screens/HomeScreen/HomeStackScreen';
 import LoginScreen from './screens/AuthScreen/LoginScreen';
 import SignupScreen from './screens/AuthScreen/SignupScreen';
 import BehaviorStatScreen from './screens/StatisticScreens/BehaviorStatScreen';
+import GroupsScreen from './screens/GroupsScreens/GroupsScreen';
 
 import {useSelector, dispatch, useDispatch} from 'react-redux';
 import {authenticateAuthTokens, logoutAuthTokens} from './store/redux/authTokens';
@@ -133,7 +134,7 @@ function AuthenticatedStack() {
             />
             <BottomTab.Screen
                 name="Group"
-                component={Home}
+                component={GroupsScreen}
                 options={{
                     tabBarLabel: 'Group', tabBarIcon: ({color, size}) => (
                         <Ionicons name="people-outline" size="25px"/>

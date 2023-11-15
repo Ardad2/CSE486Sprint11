@@ -13,7 +13,7 @@ import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/auth
 import BehaviorStatItem from '../../components/BehaviorStatItem';
 
 
-export default function BehaviorStatScreen() {
+export default function GorupsScreen() {
 
   const authToken = useSelector( (state) => state.authTokens.data[0]); 
 
