@@ -64,6 +64,7 @@ function BehaviorStatItem(props) {
       return (completedMeasurment)/(totalMeasurment);
     }
 
+    // Calculate total measurements for a specific user behavior?
     function calculateTotalTimeDone()
     {
       var totalMeasurment = 0;
