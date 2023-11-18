@@ -108,6 +108,7 @@ function AuthStack() {
 }
 
 // function AuthenticatedStack is for the home screen and the settings screen
+// Bottom tab navigator for authenticated screens (home, behavior stat, groups, report, settings)
 function AuthenticatedStack() {
     return (
         <BottomTab.Navigator initialRouteName="Home">
