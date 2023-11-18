@@ -13,6 +13,8 @@ import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/auth
 import BehaviorStatItem from '../../components/BehaviorStatItem';
 
 
+// function "GroupsScreen()" instead of "GorupsScreen()"
+// export default function GroupsScreen()
 export default function GorupsScreen() {
 
   const authToken = useSelector( (state) => state.authTokens.data[0]); 
@@ -44,6 +46,7 @@ export default function GorupsScreen() {
           //onDeleteItem={deleteBehaviorHandler}
           //onPress={pressHandler}
           />
+// 'z' below may cause error in code
 z
         }}
         //keyExtractor={(item,index) => {return item.behaviorID}} 
