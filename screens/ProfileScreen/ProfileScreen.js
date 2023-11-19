@@ -1,4 +1,4 @@
-// decide what the user will see after logging in
+// decide what the user will see on their profile screen
 
 import {View, Text, Button, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
@@ -7,12 +7,11 @@ import { incrementBehavior, decrementBehavior } from '../../store/redux/users';
 
 function ProfileScreen( {route, navigation} )
 {
-
     const dispatch = useDispatch();
 
     const authToken = useSelector( (state) => state.authTokens.data[0]); 
 
-    // const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
+    // const behaviorList = useSelector( (state) => state.users.users[0].behaviors); **NOT USED RN
     
     const userList = useSelector( (state) => state.users.users);
     const currUser = userList.filter(user => user.username == authToken.email);
@@ -59,6 +58,7 @@ function ProfileScreen( {route, navigation} )
     - Username for the user
     - View account information
     - potentially link to facebook account? maybe linkedin, might be too difficult
+    - friends addition?
     - add Maz's easier capability for those that are disabled
 
    also was thinking about maybe the ability to add a light screen mode
