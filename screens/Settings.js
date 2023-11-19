@@ -56,7 +56,20 @@ Below is the buttons for navigating to:
 would be cool to add into settings a light screen
 or a dark screen option
 Im sure it would be relatively easy to implement and something I can look into.
-*/
+
+light mode and dark screen mode implemented.
+
+Need to get the settings screen looking more efficient
+and use ways that make it easier for the user
+to change their settings.
+i.e:
+ - 1 touch changes
+ - filters
+ - drop downs
+ - buttons
+ - dont want the user to have to type or look for a 
+   specific setting for to long
+
 
 
 
