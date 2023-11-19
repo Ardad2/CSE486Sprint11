@@ -40,7 +40,11 @@ function LoginScreen() {
 
 
 
-
+    /*
+    Error for if the users login is not
+    added into the database.
+    */
+   
     } catch (error) {
       console.log(error);
       Alert.alert(
