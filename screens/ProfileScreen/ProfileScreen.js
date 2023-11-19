@@ -74,7 +74,17 @@ function ProfileScreen( {route, navigation} )
        - view the users following / followers 
        - look at the profiles behaviors in a list format
        - look at the profiles behaviors in a box format
-    */
+    
+
+           Just thought of something:
+        would also be cool to go have on the profile page
+        a list of past completed habits.
+        list the top 5 that stand out to them and have that
+        as a way to show off something you are proud of. 
+        don't need all habits shown on the profile. 
+    
+
+        */
 
     return (
         <View> 
