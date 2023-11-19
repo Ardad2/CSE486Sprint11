@@ -1,7 +1,6 @@
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
 function BehaviorItem(props) {
 
     const navigation = useNavigation();
@@ -11,7 +10,6 @@ function BehaviorItem(props) {
       )
     }
     
-
     return (
         <View style={styles.behaviorItem}>
         <Pressable 
@@ -39,7 +37,7 @@ const styles = StyleSheet.create({
   pressedItem: {
     opacity: 0.5
   },
-  behaivorText: {
+  behaivorText: { // "behaviorText" instead of "behaivorText"?
     color: 'black',
     padding: 20,
   }
