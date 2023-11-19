@@ -66,15 +66,6 @@ function ProfileScreen( {route, navigation} )
         - If not too difficult, can also add an option that syncs the theme to the theme of the user's 
         phone (i.e. if the user's phone is dark mode, then the app will be in dark mode)
 
-    Some more possible features:
-      -  allow the ability to post highlights to their friends
-      - show who is friends with a user
-       - can chose whether the posts can be viewed by anyone or friends
-       - view the users likes
-       - view the users following / followers 
-       - look at the profiles behaviors in a list format
-       - look at the profiles behaviors in a box format
-    
 
            Just thought of something:
         would also be cool to go have on the profile page
