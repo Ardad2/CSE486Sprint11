@@ -1,3 +1,5 @@
+// weekly calander file to see tasks
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, ScrollView, TouchableOpacity, TouchableWithoutFeedback, Modal, Platform, ActivityIndicator, Pressable, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
@@ -12,15 +14,10 @@ import BehaviorItem from '../../components/BehaviorItem';
 
 import styles from './Style';
 
-
-
 const WeeklyCalendar = props => {
 
-    
 
     const navigation = useNavigation();
-
-
 
     function pressHandler(name, id, behaviorID, date) {
         navigation.navigate("BehaviorDetailScreen", { name: name, id: id, behaviorID: behaviorID, date: date});
@@ -29,8 +26,6 @@ const WeeklyCalendar = props => {
       const authToken = useSelector( (state) => state.authTokens.data[0]); 
       const userList = useSelector( (state) => state.users.users);
 const currUser = userList.filter(user => user.username == authToken.email);
-
-
 
     const [currDate, setCurrDate] = useState(moment(props.selected).locale(props.locale))
     const [weekdays, setWeekdays] = useState([])
