@@ -1,3 +1,4 @@
+/ behavior input functions
 import { useState } from 'react';
 import { StyleSheet, View, TextInput, Button, Modal, Image } from 'react-native';
 
@@ -23,7 +24,7 @@ function BehaviorInput(props) {
         <TextInput 
         style={styles.textInput} 
         placeholder="What did you do today?"
-        // placeholder = "What would you like to achieve tomorrow?"
+        // placeholder = "What would you like to achieve tomorrow?", to be changed
         
         //Note if it was goalInputHandler() it would get executed as soon as React starts.
 
