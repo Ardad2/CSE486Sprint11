@@ -1,4 +1,3 @@
-/ behavior input functions
 import { useState } from 'react';
 import { StyleSheet, View, TextInput, Button, Modal, Image } from 'react-native';
 
