@@ -44,7 +44,7 @@ export default function BehaviorStatScreen() {
           //onDeleteItem={deleteBehaviorHandler}
           //onPress={pressHandler}
           />
-z
+z // Might cause error in code?
         }}
         //keyExtractor={(item,index) => {return item.behaviorID}} 
         alwaysBounceVertical={true}
